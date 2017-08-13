@@ -3,7 +3,7 @@ angular.module("starter")
         var module = this;
         var req = {
             method: 'POST',
-            url: "http://localhost/api_skill4sure/",
+            url: "http://localhost:8080/api/",
             headers: {
                 'Access-Control-Allow-Origin': "*"
             },
