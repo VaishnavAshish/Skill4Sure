@@ -5,7 +5,9 @@
 			<div ng-repeat="data in home.data track by $index">
 				<div class="latest-grids">
 					<div ng-repeat="module in data" class="col-md-4 latest-grid">
-						<div class="latest-top" style="background-repeat: no-repeat;background-origin: content-box;min-height:250px;background-image:url('webimages/modules/{{module.id}}.jpg')">
+						<div class="latest-top">
+							<!--style="background-repeat: no-repeat;background-origin: content-box;min-height:250px;background-image:url('')"-->
+							<img src="webimages/modules/{{module.id}}.jpg" style="width:450px;height:230px;">
 							<div class="latest-text">
 								<h4>{{module.name}}</h4>
 							</div>
