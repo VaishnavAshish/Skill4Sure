@@ -8,6 +8,13 @@ angular.module("starter",['ui.router'])
 		controller: 'homeCtrl',
         controllerAs: 'home'
 	  })
+
+	  .state('module',{
+		url: "/module",
+		templateUrl: "templates/module.html",
+		controller: 'moduleCtrl',
+		controllerAs: 'module'
+	  })
 	 
 	 
   $urlRouterProvider.otherwise('/')		
