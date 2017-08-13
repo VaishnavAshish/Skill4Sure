@@ -3,54 +3,17 @@
 		<div class="container">
 			<h3 class="tittle1">Modules</h3>
 			<div ng-repeat="data in home.data track by $index">
-				<div ng-class="{'latest-grids':($index+1)%3==0}" class="">
-					<div class="col-md-4 latest-grid">
-						<div class="latest-top">
-							<img src="webimages/modules/{{data.id}}.jpg" class="img-responsive" alt="">
+				<div class="latest-grids">
+					<div ng-repeat="module in data" class="col-md-4 latest-grid">
+						<div class="latest-top" style="background-repeat: no-repeat;background-origin: content-box;min-height:250px;background-image:url('webimages/modules/{{module.id}}.jpg')">
 							<div class="latest-text">
-								<h4>{{data.name}}</h4>
+								<h4>{{module.name}}</h4>
 							</div>
 
 						</div>
 					</div>
-					<div ng-if="($index+1)%3==0" class="clearfix"></div>
+					<div class="clearfix"></div>
 				</div>
-			</div>
-			<div class="latest-grids">
-				<div class="col-md-4 latest-grid">
-					<div class="latest-top">
-						<img src="images/l4.jpg" class="img-responsive" alt="">
-						<div class="latest-text">
-							<h4>Watch</h4>
-						</div>
-						<div class="latest-text2 hvr-sweep-to-top">
-							<h4>-45%</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 latest-grid">
-					<div class="latest-top">
-						<img src="images/l5.jpg" class="img-responsive" alt="">
-						<div class="latest-text">
-							<h4>Bag</h4>
-						</div>
-						<div class="latest-text2 hvr-sweep-to-top">
-							<h4>-10%</h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 latest-grid">
-					<div class="latest-top">
-						<img src="images/l6.jpg" class="img-responsive" alt="">
-						<div class="latest-text">
-							<h4>Cameras</h4>
-						</div>
-						<div class="latest-text2 hvr-sweep-to-top">
-							<h4>-30%</h4>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>

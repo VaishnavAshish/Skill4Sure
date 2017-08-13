@@ -8,7 +8,13 @@ angular.module("starter")
         };
 
         $http(req).then(
-            function (response) { home.data = response.data },
+            function (response) {
+                home.data = [];
+                for (var i = 0; response.data.length != 0;) {
+                    home.data.push(response.data.splice(0, 3));
+                    if (response.data.length > 3) { i += 3; } else { i += response.data.length; }
+                }
+            },
             function (error) { console.log(error); }
         )
     })
