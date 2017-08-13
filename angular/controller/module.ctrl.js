@@ -1,6 +1,6 @@
 angular.module("starter")
     .controller("moduleCtrl", function ($http) {
-        var home = this;
+        var module = this;
         var req = {
             method: 'POST',
             url: "http://localhost/api_skill4sure/",
