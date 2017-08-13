@@ -3,7 +3,7 @@ angular.module("starter")
         var module = this;
         var req = {
             method: 'POST',
-            url: "http://localhost:8080/api/",
+            url: "http://localhost:8080/_api/",
             data: { module: "true" }
         };
 
