@@ -4,9 +4,6 @@ angular.module("starter")
         var req = {
             method: 'POST',
             url: "http://localhost:8080/api/",
-            headers: {
-                'Access-Control-Allow-Origin': "*"
-            },
             data: { module: "true" }
         };
 
