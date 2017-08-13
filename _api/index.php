@@ -9,7 +9,6 @@ function decrypt($encrypted_string, $encryption_key) {
 	return openssl_decrypt($encrypted_string,"AES-128-ECB",$encryption_key);
 }
 	 
-	 print_r($d);
     if(isset($d->module) && $d->module!="")
     {
         if($query = mysql_query("SELECT * from module"))
