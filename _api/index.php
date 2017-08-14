@@ -11,14 +11,28 @@ function decrypt($encrypted_string, $encryption_key) {
 	 
     if(isset($d->module) && $d->module!="")
     {
+	
         if($query = mysql_query("SELECT * from module"))
 	{
-      	 while($row=mysql_fetch_array($query))
+      	 while($row = mysql_fetch_array($query))
         	{
             		$res[] = $row;
         	}
        	   echo json_encode($res);
 	}
     }
+	else if(isset($d->Selectedmodule) && $d->Selectedmodule)
+	{
+		$module_id = htmlspecialchars($d->Selectedmodule->id,ENT_QUOTES);
+		$query = mysql_query("SELECT * from module where id = '"$module_id"'");
+		if(mysql_num_rows($query)>0)
+		{
+			while($row = mysql_fetch_array($query))
+			{
+				$res[] = $row;
+			}
+			echo json_encode($res);
+		}
+	}
 	 
 ?>

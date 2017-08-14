@@ -10,7 +10,7 @@ angular.module("starter")
 
         $http(req).then(
             function (response) {
-
+                    console.log(response);
             },
             function (error) { console.log(error); }
         );
