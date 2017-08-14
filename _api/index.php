@@ -23,8 +23,8 @@ function decrypt($encrypted_string, $encryption_key) {
     }
 	else if(isset($d->Selectedmodule) && $d->Selectedmodule)
 	{
-		$module_id = htmlspecialchars($d->Selectedmodule->id,ENT_QUOTES);
-		$query = mysql_query("SELECT * from module where id = '"$module_id"'");
+		$module_id = htmlspecialchars($d->Selectedmodule,ENT_QUOTES);
+		$query = mysql_query("SELECT * from module where id = '".$module_id."'");
 		if(mysql_num_rows($query)>0)
 		{
 			while($row = mysql_fetch_array($query))
