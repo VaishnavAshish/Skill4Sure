@@ -1,5 +1,5 @@
 angular.module("starter")
-    .controller("homeCtrl", function ($http) {
+    .controller("homeCtrl", function ($http, $rootScope, $state) {
         var home = this;
         var req = {
             method: 'POST',
@@ -16,5 +16,15 @@ angular.module("starter")
                 }
             },
             function (error) { console.log(error); }
-        )
+        );
+
+
+
+        home.selectedModule = function (module) {
+            //ab module me wo data h jo user ne select kya h
+            $rootScope.selectedModule = module;
+            $state.go("module");
+        }
+
+
     })
