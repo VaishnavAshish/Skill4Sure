@@ -13,13 +13,13 @@ function decrypt($encrypted_string, $encryption_key) {
     {
 	
         if($query = mysql_query("SELECT * from module"))
-	{
-      	 while($row = mysql_fetch_array($query))
-        	{
-            		$res[] = $row;
-        	}
-       	   echo json_encode($res);
-	}
+		{
+			while($row = mysql_fetch_array($query))
+				{
+						$res[] = $row;
+				}
+			echo json_encode($res);
+		}
     }
 	else if(isset($d->Selectedmodule) && $d->Selectedmodule)
 	{
