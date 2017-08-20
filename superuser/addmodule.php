@@ -1,5 +1,8 @@
 <?php require("basic.php");?>
 <!DOCTYPE html>
+
+
+
 <?php if($_SESSION['usr_nm']=="DEMO"){header("location:login.php");}?>
 <html lang="en">
   <head>
@@ -25,7 +28,7 @@
 	if(isset($_POST['add_module']))
 	{
 		$createTable="CREATE TABLE IF NOT EXISTS `module` ( `id` int(11) NOT NULL AUTO_INCREMENT,`name` text NOT NULL,  `enable` int(11) NOT NULL, `priority` int(11) NOT NULL,  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;";
-		@$query="Insert into `module` set name='".htmlentities(str_replace("&", "and",$_POST['module']), ENT_QUOTES)."',description='".str_replace("'", "&apos;",$_POST['description'])."',enable=1";
+		echo $query="Insert into `module` set name='".htmlentities(str_replace("&", "and",$_POST['module']), ENT_QUOTES)."',description='".htmlspecialchars(str_replace("'", "&apos;",$_POST['description']),ENT_QUOTES)."',enable=1";
 		
 		mysql_query($createTable);
 		if(mysql_query($query))
@@ -144,11 +147,18 @@
 					  
 					  
 					  
-                     
+                     <script>
+					 function addData(){
+						 var editor=document.getElementById('cke_1_contents');
+						 var text=document.getElementById('editortext');
+							text.value=editor.innerHTML;
+					 }
+					 </script>
                       <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" onClick="document.getElementById('editortext').value=document.getElementById('editor').innerHTML;" name="add_module" class="btn btn-success">Submit</button>
+					  <input type="hidden" name="description" id="editortext">
+                        <div id="a" class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button type="submit" onClick="addData();" name="add_module" class="btn btn-success">Submit</button>
 						  <button type="submit" class="btn btn-primary">Reset</button>
                         </div>
                       </div>
