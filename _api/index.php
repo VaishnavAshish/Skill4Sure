@@ -21,7 +21,8 @@ function decrypt($encrypted_string, $encryption_key) {
 			echo json_encode($res);
 		}
     }
-	else if(isset($d->Selectedmodule) && $d->Selectedmodule)
+	
+	else if(isset($d->Selectedmodule))
 	{
 		$module_id = htmlspecialchars($d->Selectedmodule,ENT_QUOTES);
 		$query = mysql_query("SELECT * from module where id = '".$module_id."'");

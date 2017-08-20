@@ -10,7 +10,7 @@ angular.module("starter",['ui.router'])
 	  })
 
 	  .state('module',{
-		url: "/module",
+		url: "/module/:module_id",
 		templateUrl: "templates/module.html",
 		controller: 'moduleCtrl',
 		controllerAs: 'module'
