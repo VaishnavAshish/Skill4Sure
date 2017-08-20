@@ -1,5 +1,5 @@
 angular.module("starter")
-    .controller("moduleCtrl", function ($http, $rootScope, $stateParams) {
+    .controller("moduleCtrl", function ($http,$timeout, $stateParams) {
         var module = this;
         var req = {
             method: 'POST', 
@@ -10,7 +10,9 @@ angular.module("starter")
         $http(req).then(
             function (response) {
                     module.data = response.data[0];
-                    module.data.decription = htmlspecialchars_decode(module.data.description);
+                    module.data.description = htmlspecialchars_decode(module.data.description);
+                    document.getElementById("showdata").innerHTML =  module.data.description;
+                    
             },
             function (error) { console.log(error); }
         );
