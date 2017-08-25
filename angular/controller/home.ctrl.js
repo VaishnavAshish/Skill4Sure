@@ -1,6 +1,9 @@
 angular.module("starter")
     .controller("homeCtrl", function ($http, $rootScope, $state) {
         var home = this;
+        $rootScope.slider = true;
+        $rootScope.buttons = false;
+        
         var req = {
             method: 'POST',
             url: "http://localhost/skill4sure/_api/",

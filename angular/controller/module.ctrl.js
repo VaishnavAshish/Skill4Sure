@@ -1,13 +1,21 @@
 angular.module("starter")
-    .controller("moduleCtrl", function ($http,$timeout, $stateParams) {
+    .controller("moduleCtrl", function ($http,$timeout, $stateParams,$rootScope) {
         var module = this;
-        var req = {
+        $rootScope.slider = false;
+        $rootScope.buttons = true;
+       
+       module.search = function(type){
+           
+           var req = {
             method: 'POST', 
-            url: "http://localhost/skill4sure/_api/",
-            data: { Selectedmodule:$stateParams.module_id }
+            url: "http://localhost/skill4sure/_api/"
         };
 
-        $http(req).then(
+         if(type=="hindi"){
+                req.data= { SelectedmoduleH:$stateParams.module_id }
+            }
+            else req.data= { SelectedmoduleE:$stateParams.module_id }
+           $http(req).then(
             function (response) {
                     module.data = response.data[0];
                     module.data.description = htmlspecialchars_decode(module.data.description);
@@ -15,7 +23,13 @@ angular.module("starter")
                     
             },
             function (error) { console.log(error); }
-        );
+        );   
+      
+    }
+    module.search();
+       
+
+ 
 
 
 
